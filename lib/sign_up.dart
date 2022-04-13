@@ -1,6 +1,8 @@
 import 'package:firebase_auth_demo/helper/auth_helper.dart';
+import 'package:firebase_auth_demo/phone_auth.screen.dart';
 import 'package:firebase_auth_demo/sign_in.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class SignUp extends StatelessWidget {
   TextEditingController _emailController = TextEditingController();
@@ -15,7 +17,6 @@ class SignUp extends StatelessWidget {
         body: Padding(
           padding: EdgeInsets.all(30),
           child: Column(children: [
-
             TextField(
               controller: _emailController,
             ),
@@ -40,7 +41,22 @@ class SignUp extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => SignIN()));
                 },
-                child: Text('Already Have an Account?'))
+                child: Text('Already Have an Account?')),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  obj.signInWithGoogle(context);
+                },
+                child: Text('Sign in with Google')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PhoneAuth()));
+                
+                },
+                child: Text('Sign up with Phone')),
           ]),
         ),
       ),
