@@ -1,3 +1,4 @@
+import 'package:firebase_auth_demo/home_screen.dart';
 import 'package:firebase_auth_demo/sign_in.dart';
 import 'package:firebase_auth_demo/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
